@@ -33,3 +33,17 @@ models:
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: orders
+    description: This pulls in customer, order id, and amount
+    columns:
+    - name: order_id
+      description: Primary key
+      tests:
+        - unique
+        - not_null
+    - name: customer_id
+      description: part of key, not unique for repeat customers, from raw.jaffle_shop.orders
+      tests:
+        - not_null
+
